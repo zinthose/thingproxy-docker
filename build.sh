@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t thingproxy .
+docker build -t zinthose/thingproxy .

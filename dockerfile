@@ -4,8 +4,7 @@ LABEL source="https://github.com/zinthose/thingproxy-docker"
 
 ## Install Git
 RUN set -x \
-    && apk add --no-cache bash git openssh \
-    && git --version && bash --version && ssh -V && npm -v && node -v && yarn -v
+    && apk add --no-cache bash git openssh
 
 WORKDIR /usr/src/app
 

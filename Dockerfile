@@ -14,6 +14,7 @@ WORKDIR /usr/src/app
 ## Zinthose's build - Possibly unstable as it forces all packages to latest release.
 RUN git clone ${src_thingproxy:-https://github.com/zinthose/thingproxy.git} /usr/src/app
 
+## Install
 RUN npm install
 
 EXPOSE 3000

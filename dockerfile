@@ -1,6 +1,4 @@
-FROM node:lts-alpine
-LABEL maintainer="zinthose"
-LABEL source="https://github.com/zinthose/thingproxy-docker"
+FROM node:lts-alpine as build
 
 ## Install Git
 RUN set -x \
@@ -16,5 +14,15 @@ RUN git clone ${src_thingproxy:-https://github.com/zinthose/thingproxy.git} /usr
 
 RUN npm install
 
+## Clean Up
+RUN set -x \ 
+    && rm -rf .git \
+    && rm -f README.md
+
+## Build new image from "compiled" install to reduce deployed image size
+FROM node:lts-alpine
+LABEL maintainer="zinthose"
+LABEL source="https://github.com/zinthose/thingproxy-docker"
+COPY --from=build /usr/src/app /app
 EXPOSE 3000
 CMD [ "node", "server.js" ]

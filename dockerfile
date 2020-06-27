@@ -23,6 +23,7 @@ RUN set -x \
 FROM node:lts-alpine
 LABEL maintainer="zinthose"
 LABEL source="https://github.com/zinthose/thingproxy-docker"
+WORKDIR /app
 COPY --from=build /usr/src/app /app
 EXPOSE 3000
 CMD [ "node", "server.js" ]

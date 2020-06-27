@@ -9,10 +9,10 @@ RUN set -x \
 WORKDIR /usr/src/app
 
 ## Original - But a little out of date with packages
-# RUN git clone https://github.com/Freeboard/thingproxy.git /usr/src/app
+# RUN git clone ${src_thingproxy:-https://github.com/Freeboard/thingproxy.git} /usr/src/app
 
 ## Zinthose's build - Possibly unstable as it forces all packages to latest release.
-RUN git clone https://github.com/zinthose/thingproxy.git /usr/src/app
+RUN git clone ${src_thingproxy:-https://github.com/zinthose/thingproxy.git} /usr/src/app
 
 RUN npm install
 

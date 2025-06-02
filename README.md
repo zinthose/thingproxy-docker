@@ -1,3 +1,6 @@
+> **!!!PROJECT ARCHIVED!!!**
+> It solved what I needed it to, but I have since moved on.
+
 # thingproxy-docker
 Docker Container for [thingproxy](https://github.com/zinthose/thingproxy)
 
